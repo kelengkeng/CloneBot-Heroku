@@ -38,7 +38,7 @@ class MySaveFileThread(threading.Thread):
         gd = GoogleDrive(user_id)
         message = '♻️ <b>Copying</b>\n\n📂 <b>Target directory:</b> {}\n'.format(dest_folder['path'])
         inline_keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text=f'❌ Stop❌ ', callback_data=f'stop_task,{thread_id}')]])
+            [[InlineKeyboardButton(text=f'❌ Stop ❌ ', callback_data=f'stop_task,{thread_id}')]])
 
         reply_message_id = update.callback_query.message.reply_to_message.message_id \
             if update.callback_query.message.reply_to_message else None
@@ -153,7 +153,7 @@ class MySaveFileThread(threading.Thread):
                         progress_checked_files = int(match_checked_files.group(1))
                         progress_total_check_files = int(match_checked_files.group(2))
                     progress_max_percentage_10 = max(progress_size_percentage_10, progress_file_percentage_10)
-                    message_progress = '🗂 <b>Source:</b> <a href="https://drive.google.com/open?id={}">{}</a>\n│\n' \
+                    message_progress = '🗂 <b>Source:</b> <a href="https://drive.google.com/open?id={}">{}</a>\n\n' \
                                        '✔️ <b>Checks:</b> <code>{} / {}</code>\n' \
                                        '📄 <b>Transfers:</b> <code>{} / {}</code>\n' \
                                        '📦 <b>Size:</b> <code>{} / {}</code>\n{}' \
